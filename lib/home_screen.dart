@@ -54,11 +54,42 @@ class _HomeScreenState extends State<HomeScreen> {
             )
           ],
         ),
-        body:  Column(
-          children: [
+        body:   TabBarView(
+            children: [
+              const Center(child: Text('Camera')),
+              ListView.builder(
+                  itemBuilder: (context, index){
+                    return  const ListTile(
+                      leading:  CircleAvatar(
+                        backgroundImage: NetworkImage('https://images.pexels.com/photos/10273454/pexels-photo-10273454.jpeg?auto=compress&cs=tinysrgb&w=600'),
+                      ),
+                      title:  Text('Hammad Ahmed'),
+                      subtitle:  Text('Where are you?'),
+                      trailing:  Text('10:00 pm '),
+                    );
+                  }
+              ),
+             const Center(child: Text('Updates')),
 
-          ],
+              ListView.builder(
+                  itemBuilder: (context, index){
+                    return  const ListTile(
+                      leading:  CircleAvatar(
+                        backgroundImage: NetworkImage('https://images.pexels.com/photos/10273454/pexels-photo-10273454.jpeg?auto=compress&cs=tinysrgb&w=600'),
+                      ),
+                      title:  Text('Hammad Ahmed'),
+                      subtitle:  Align(
+                        alignment: Alignment.centerRight,
+                        child:  Icon(Icons.call),
+                      ),
+                      trailing:  Text('10:00 pm '),
+                    );
+                  }
+              ),
+
+            ]
         ),
+
       ),
     );
   }
